@@ -2,12 +2,10 @@ import { red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 // A custom theme for this app
-const theme = createTheme({  
-  components:{
-    MuiTypography:{
-      
-    }
-  }
+const theme = createTheme({
+  components: {
+    
+  },
   palette: {
     primary: {
       main: "#3EAB34",

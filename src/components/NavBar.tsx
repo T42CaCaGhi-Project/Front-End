@@ -1,13 +1,17 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import {
+  AppBar,
+  Box,
+  Button,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import * as React from "react";
 
-const AppBarMenu = () => {
+const NavBar = (props: { open: boolean; setOpen: any }) => {
+  const { open, setOpen } = props;
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -18,11 +22,12 @@ const AppBarMenu = () => {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={() => setOpen(!open)}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            FenFesta
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
@@ -30,4 +35,4 @@ const AppBarMenu = () => {
     </Box>
   );
 };
-export default AppBarMenu;
+export default NavBar;
