@@ -1,0 +1,39 @@
+import { Stack, Typography, Unstable_Grid2 as Grid2 } from "@mui/material";
+import { Container } from "@mui/system";
+import dayjs, { Dayjs } from "dayjs";
+import React, { useState } from "react";
+import Event from "./Event";
+import ViewCalendario from "./ViewCalendario";
+
+const PageSelector = (props: { selection: string }) => {
+  const { selection } = props;
+
+  const [date, setDate] = useState<Dayjs>(dayjs());
+
+  switch (selection) {
+    case "Calendario":
+      return (
+        <>
+          <Container maxWidth={"lg"}>
+            <Grid2 container spacing={2}>
+              <Grid2 xs={6}>
+                <ViewCalendario date={date} setDate={setDate} />
+              </Grid2>
+              <Grid2 xs={6}>
+                <Stack spacing={2}>
+                  <Event>{date.toString()}</Event>
+                  <Event>2</Event>
+                  <Event>3</Event>
+                </Stack>
+              </Grid2>
+            </Grid2>
+          </Container>
+        </>
+      );
+    case "Mappa":
+      return <Typography paragraph>{selection}</Typography>;
+    default:
+      return <></>;
+  }
+};
+export default PageSelector;

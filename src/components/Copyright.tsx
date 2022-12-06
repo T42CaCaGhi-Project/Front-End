@@ -1,11 +1,16 @@
 import { Typography } from "@mui/material";
 import * as React from "react";
 
-const Copyright = (props:any) => {
+const Copyright = (props: any) => {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
       {"Copyright © T42 IngSw "}
-      {new Date().getFullYear()}.
+      {new Date().getFullYear()}
     </Typography>
   );
 };
