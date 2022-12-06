@@ -2,7 +2,7 @@ import { Stack, Typography, Unstable_Grid2 as Grid2 } from "@mui/material";
 import { Container } from "@mui/system";
 import dayjs, { Dayjs } from "dayjs";
 import React, { useState } from "react";
-import Event from "./Event";
+import EventList from "./EventList";
 import ViewCalendario from "./ViewCalendario";
 
 const PageSelector = (props: { selection: string }) => {
@@ -21,9 +21,7 @@ const PageSelector = (props: { selection: string }) => {
               </Grid2>
               <Grid2 xs={6}>
                 <Stack spacing={2}>
-                  <Event>{date.toString()}</Event>
-                  <Event>2</Event>
-                  <Event>3</Event>
+                  <EventList date={date} />
                 </Stack>
               </Grid2>
             </Grid2>

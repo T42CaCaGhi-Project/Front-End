@@ -10,7 +10,7 @@ const ViewCalendario = (props: { date: Dayjs | null; setDate: any }) => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <StaticDatePicker
         displayStaticWrapperAs="desktop"
-        openTo="year"
+        openTo="day"
         value={date}
         onChange={(newDate) => {
           setDate(newDate);
