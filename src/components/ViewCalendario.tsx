@@ -5,6 +5,7 @@ import React from "react";
 
 const ViewCalendario = (props: { date: Date; setDate: any }) => {
   const { date, setDate } = props;
+
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <StaticDatePicker

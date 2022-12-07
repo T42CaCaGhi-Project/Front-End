@@ -148,7 +148,7 @@ const App = () => {
           </ListItem>
         </List>
       </Drawer>
-      <Main open={openMenu}>
+      <Main open={openMenu} sx={{ paddingBottom: 0 }}>
         <DrawerHeader />
         <PageSelector selection={selection} />
         <Copyright />

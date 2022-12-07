@@ -29,6 +29,96 @@
             "image": "",
             "description": "Si beve",
             "nParticipants": 5
+        },
+        {
+            "id": 3,
+            "idOwner": 15,
+            "location": "Pergine",
+            "dateStart": "2022-10-20T21:00:00",
+            "dateFinish": "2022-10-20T23:00:00",
+            "title": "Beviamoci su 2",
+            "tags": [
+                "birra",
+                "pergine"
+            ],
+            "image": "",
+            "description": "Si beve",
+            "nParticipants": 5
+        },
+        {
+            "id": 4,
+            "idOwner": 15,
+            "location": "Pergine",
+            "dateStart": "2022-10-20T21:00:00",
+            "dateFinish": "2022-10-20T23:00:00",
+            "title": "Beviamoci su 2",
+            "tags": [
+                "birra",
+                "pergine"
+            ],
+            "image": "",
+            "description": "Si beve",
+            "nParticipants": 5
+        },
+        {
+            "id": 5,
+            "idOwner": 15,
+            "location": "Pergine",
+            "dateStart": "2022-10-20T21:00:00",
+            "dateFinish": "2022-10-20T23:00:00",
+            "title": "Beviamoci su 2",
+            "tags": [
+                "birra",
+                "pergine"
+            ],
+            "image": "",
+            "description": "Si beve",
+            "nParticipants": 5
+        },
+        {
+            "id": 6,
+            "idOwner": 15,
+            "location": "Pergine",
+            "dateStart": "2022-10-20T21:00:00",
+            "dateFinish": "2022-10-20T23:00:00",
+            "title": "Beviamoci su 2",
+            "tags": [
+                "birra",
+                "pergine"
+            ],
+            "image": "",
+            "description": "Si beve",
+            "nParticipants": 5
+        },
+        {
+            "id": 7,
+            "idOwner": 15,
+            "location": "Pergine",
+            "dateStart": "2022-10-20T21:00:00",
+            "dateFinish": "2022-10-20T23:00:00",
+            "title": "Beviamoci su 2",
+            "tags": [
+                "birra",
+                "pergine"
+            ],
+            "image": "",
+            "description": "Si beve",
+            "nParticipants": 5
+        },
+        {
+            "id": 8,
+            "idOwner": 15,
+            "location": "Pergine",
+            "dateStart": "2022-10-20T21:00:00",
+            "dateFinish": "2022-10-20T23:00:00",
+            "title": "Beviamoci su 2",
+            "tags": [
+                "birra",
+                "pergine"
+            ],
+            "image": "",
+            "description": "Si beve",
+            "nParticipants": 5
         }
     ]
 }
