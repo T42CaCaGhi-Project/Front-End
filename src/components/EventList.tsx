@@ -1,24 +1,38 @@
-import { Dayjs } from "dayjs";
 import React, { useState } from "react";
-import Event from "./Event";
+import useSWR from "swr";
+import fetcher from "../functions/fetcher";
+import { Event, Events } from "../types/Events";
+import EventItem from "./EventItem";
 
 //Qui bisogna fare la query e prendere i dati del json
 
-const EventList = (props: { date: Dayjs }) => {
+const EventList = (props: { date: Date }) => {
   const { date } = props;
-  const [noData, setNoData] = useState<boolean>(false);
 
-  if (noData) {
+  // const { data, error } = useSWR<Events, Error>(
+  //   "../../test/events.json",
+  //   fetcher
+  // );
+  const data = require("../test/events.json") as Events;
+  const error = null;
+
+  //Debug
+  //console.log(data);
+
+  if (error) return <p>Failed to load</p>;
+  if (!data) return <p>Loading...</p>;
+
+  if (data.events[0] === undefined) {
     return (
-      <p>{"Non ci sono eventi per il giorno: " + date.format("DD-MM-YYYY")}</p>
+      <p>{"Non ci sono eventi per il giorno: " + date.toLocaleDateString()}</p>
     );
   }
 
   return (
     <>
-      <Event>{date.format("DD-MM-YYYY")}</Event>
-      <Event>2</Event>
-      <Event>3</Event>
+      {data.events.map((evento: Event) => (
+        <EventItem key={evento.id} event={evento} />
+      ))}
     </>
   );
 };
