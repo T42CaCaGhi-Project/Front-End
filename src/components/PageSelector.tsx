@@ -6,13 +6,8 @@ import {
 } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useState } from "react";
-import { Event } from "../types/Events";
-import EventData from "./EventData";
 import EventList from "./EventList";
 import ViewCalendario from "./ViewCalendario";
-
-//TODO: Fix the change of status of viewDesc only when an event is selected
-//TODO: Add detailed event description
 
 const PageSelector = (props: { selection: string }) => {
   const { selection } = props;
@@ -21,15 +16,10 @@ const PageSelector = (props: { selection: string }) => {
 
   const [date, setDate] = useState<Date>(new Date());
 
-  const [viewDesc, setViewDesc] = useState<boolean>(false);
-
-  console.log("viewDesc: " + viewDesc);
-
   switch (selection) {
     case "Calendario":
       return (
         <>
-          <EventData event={undefined} open={viewDesc} setOpen={setViewDesc} />
           <Container maxWidth={"lg"}>
             <Grid2 container spacing={1}>
               <Grid2 xs={6}>
