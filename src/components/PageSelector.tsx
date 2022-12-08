@@ -29,7 +29,6 @@ const PageSelector = (props: { selection: string }) => {
     case "Calendario":
       return (
         <>
-          <EventData event={undefined} open={viewDesc} setOpen={setViewDesc} />
           <Container maxWidth={"lg"}>
             <Grid2 container spacing={1}>
               <Grid2 xs={6}>
