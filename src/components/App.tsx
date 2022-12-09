@@ -135,7 +135,12 @@ const App = () => {
               <ListItemIcon>
                 <EventIcon sx={{ color: "black" }} />
               </ListItemIcon>
-              <ListItemText primary={"Calendario"} />
+              <ListItemText
+                primary={"Calendario"}
+                sx={{
+                  fontWeight: "600",
+                }}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem key={"Mappa"} disablePadding>
@@ -143,7 +148,12 @@ const App = () => {
               <ListItemIcon>
                 <PlaceIcon sx={{ color: "black" }} />
               </ListItemIcon>
-              <ListItemText primary={"Mappa"} sx={{ fontWeight: "600" }} />
+              <ListItemText
+                primary={"Mappa"}
+                sx={{
+                  fontWeight: "600",
+                }}
+              />
             </ListItemButton>
           </ListItem>
         </List>

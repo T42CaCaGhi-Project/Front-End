@@ -11,7 +11,7 @@ import {
   useTheme,
 } from "@mui/material";
 import React, { useState } from "react";
-import getTime from "../functions/dateParser";
+import formatTime from "../functions/dateParser/formatTime";
 import { Event } from "../types/Events";
 import EventData from "./EventData";
 
@@ -61,16 +61,13 @@ const EventItem = (props: { event: Event }) => {
                   <Grid2 xs={1}>
                     <Typography fontWeight={"bold"} textAlign={"center"}>
                       <PlaceIcon fontSize={"small"} />
-                      {" " + event.location}
+                      {" " + event.location.name + " - " + event.location.city}
                     </Typography>
                   </Grid2>
                   <Grid2 xs={1}>
                     <Typography fontWeight={"bold"} textAlign={"center"}>
                       <WatchIcon fontSize={"small"} />
-                      {" " +
-                        getTime(event.dateStart) +
-                        " - " +
-                        getTime(event.dateFinish)}
+                      {" " + formatTime(event.dateStart, event.dateFinish)}
                     </Typography>
                   </Grid2>
                 </Grid2>
