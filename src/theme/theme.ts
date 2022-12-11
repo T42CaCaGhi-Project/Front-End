@@ -2,11 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 // A custom theme for the app
 const theme = createTheme({
-  components: {
-    MuiInputBase:{
-      
-    }
-  },
+  components: {},
   palette: {
     primary: {
       main: "#007b00",

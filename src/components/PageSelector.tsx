@@ -7,10 +7,11 @@ import {
 import { Container } from "@mui/system";
 import React, { useState } from "react";
 import EventList from "./EventList";
+import NewEvent from "./NewEvent";
 import ViewCalendario from "./ViewCalendario";
 
-const PageSelector = (props: { selection: string }) => {
-  const { selection } = props;
+const PageSelector = (props: { user: boolean; selection: string }) => {
+  const { user, selection } = props;
 
   const theme = useTheme();
 
@@ -32,6 +33,7 @@ const PageSelector = (props: { selection: string }) => {
               </Grid2>
             </Grid2>
           </Container>
+          <NewEvent user={user} />
         </>
       );
     case "Mappa":

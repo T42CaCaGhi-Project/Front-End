@@ -80,6 +80,8 @@ const App = () => {
   const [selection, setSelection] = useState<string>("Calendario");
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
+  const [user, setUser] = useState<boolean>(true);
+
   const theme = useTheme();
 
   const handleDrawerOpen = () => {
@@ -160,7 +162,7 @@ const App = () => {
       </Drawer>
       <Main open={openMenu} sx={{ paddingBottom: 0 }}>
         <DrawerHeader />
-        <PageSelector selection={selection} />
+        <PageSelector user={user} selection={selection} />
         <Copyright />
       </Main>
     </Box>
