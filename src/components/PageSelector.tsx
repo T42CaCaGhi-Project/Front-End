@@ -7,6 +7,7 @@ import {
 import { Container } from "@mui/system";
 import React, { useState } from "react";
 import EventList from "./EventList";
+import MapList from "./MapList";
 import NewEvent from "./NewEvent";
 import ViewCalendario from "./ViewCalendario";
 
@@ -37,7 +38,13 @@ const PageSelector = (props: { user: boolean; selection: string }) => {
         </>
       );
     case "Mappa":
-      return <Typography paragraph>{selection}</Typography>;
+      return (
+        <>
+          <Container maxWidth={"lg"}>
+            <MapList/>
+          </Container>
+        </>
+      );
     default:
       return <></>;
   }

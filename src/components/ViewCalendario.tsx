@@ -1,8 +1,8 @@
 import { TextField } from "@mui/material";
 import { LocalizationProvider, StaticDatePicker } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { it } from "date-fns/locale";
 import React from "react";
-import {it} from "date-fns/locale"
 
 const ViewCalendario = (props: { date: Date; setDate: any }) => {
   const { date, setDate } = props;

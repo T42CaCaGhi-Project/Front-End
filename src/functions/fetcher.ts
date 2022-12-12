@@ -1,2 +1,3 @@
+//Set header with token
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default fetcher;
