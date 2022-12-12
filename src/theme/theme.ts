@@ -21,6 +21,9 @@ const theme = createTheme({
     success: {
       main: "#66bb6a",
     },
+    background: {
+      default: "#c2c2c2",
+    },
   },
   breakpoints: {
     values: {

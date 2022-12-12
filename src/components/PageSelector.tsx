@@ -1,4 +1,5 @@
 import {
+  Paper,
   Stack,
   Typography,
   Unstable_Grid2 as Grid2,
@@ -7,6 +8,7 @@ import {
 import { Container } from "@mui/system";
 import React, { useState } from "react";
 import EventList from "./EventList";
+import FilterInput from "./FilterInput";
 import MapList from "./MapList";
 import NewEvent from "./NewEvent";
 import ViewCalendario from "./ViewCalendario";
@@ -25,7 +27,7 @@ const PageSelector = (props: { user: boolean; selection: string }) => {
           <Container maxWidth={"lg"}>
             <Grid2 container spacing={1}>
               <Grid2 xs={6}>
-                <ViewCalendario date={date} setDate={setDate} />
+                <FilterInput date={date} setDate={setDate}/>
               </Grid2>
               <Grid2 xs={6}>
                 <Stack spacing={1}>
@@ -41,7 +43,7 @@ const PageSelector = (props: { user: boolean; selection: string }) => {
       return (
         <>
           <Container maxWidth={"lg"}>
-            <MapList/>
+            <MapList />
           </Container>
         </>
       );

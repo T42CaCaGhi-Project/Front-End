@@ -75,7 +75,7 @@ const EventData = (props: {
               width: "100%",
               height: "auto",
               marginTop: 8,
-              borderRadius: 10,
+              borderRadius: 4,
             }}
             src={require("../test/" + event.image)}
             alt={"Image"}

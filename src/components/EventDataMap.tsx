@@ -27,7 +27,7 @@ const EventDataMap = (props: { location: Location }) => {
           height: "300px",
           marginTop: 8,
           marginBottom: 8,
-          borderRadius: 10,
+          borderRadius: 4,
         }}
       >
         <TileLayer
