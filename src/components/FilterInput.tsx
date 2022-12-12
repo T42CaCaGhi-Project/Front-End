@@ -2,6 +2,7 @@ import { Paper } from "@mui/material";
 import React from "react";
 import ViewCalendario from "./ViewCalendario";
 
+//Add Button for "Day"-"Week"-"Month"
 const FilterInput = (props: { date: Date; setDate: any }) => {
   const { date, setDate } = props;
   return (
@@ -13,7 +14,6 @@ const FilterInput = (props: { date: Date; setDate: any }) => {
           textAlign: "left",
         }}
       >
-        //Add Button for "Day"-"Week"-"Month"
         <ViewCalendario date={date} setDate={setDate} />
       </Paper>
     </>
