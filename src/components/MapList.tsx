@@ -36,12 +36,13 @@ const createMarker = (event: Event) => {
         }
         key={event.id}
       >
-        <Popup offset={new Point(0.5, -10 * scale)}>
+        <Popup offset={new Point(0.5, -10 * scale)} key={event.id}>
           <Button
             variant={"contained"}
             onClick={() => {
               setViewDesc(true);
             }}
+            key={event.id}
           >
             {event.title}
           </Button>

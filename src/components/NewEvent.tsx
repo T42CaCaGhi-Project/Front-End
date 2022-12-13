@@ -1,13 +1,20 @@
 import { Add as AddIcon } from "@mui/icons-material";
 import { Fab } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import FormNewEvent from "./FormNewEvent";
 
 const NewEvent = (props: { user: boolean }) => {
   const { user } = props;
 
+  const [createEvent, setCreateEvent] = useState<boolean>(false);
+
   if (user) {
     return (
       <>
+        <FormNewEvent
+          createEvent={createEvent}
+          setCreateEvent={setCreateEvent}
+        />
         <Fab
           color="primary"
           aria-label="add"
@@ -18,7 +25,7 @@ const NewEvent = (props: { user: boolean }) => {
             zIndex: "top",
           }}
           onClick={() => {
-            alert("Nuovo Evento");
+            setCreateEvent(true);
           }}
         >
           <AddIcon />
