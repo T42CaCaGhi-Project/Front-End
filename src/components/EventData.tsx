@@ -176,7 +176,7 @@ const EventData = (props: {
               defaultValue={event.tags}
               readOnly
               renderInput={(params) => (
-                <TextField {...params} variant={"outlined"} label="Tag" />
+                <TextField {...params} variant={"outlined"} label={"Tag"} />
               )}
               renderTags={(tags) =>
                 tags.map((tag) => (
