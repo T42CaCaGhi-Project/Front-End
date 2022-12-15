@@ -1,10 +1,16 @@
-import { Stack, Unstable_Grid2 as Grid2, useTheme } from "@mui/material";
+import {
+  Stack,
+  Typography,
+  Unstable_Grid2 as Grid2,
+  useTheme,
+} from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useState } from "react";
+import DateFilter from "./DateFilter";
 import EventList from "./EventList";
-import FilterInput from "./FilterInput";
 import MapList from "./MapList";
 import NewEvent from "./NewEvent";
+import ViewCalendario from "./ViewCalendario";
 
 const PageSelector = (props: { user: boolean; selection: string }) => {
   const { user, selection } = props;
@@ -12,6 +18,8 @@ const PageSelector = (props: { user: boolean; selection: string }) => {
   const theme = useTheme();
 
   const [date, setDate] = useState<Date>(new Date());
+  //period has 3 states: day, week, month
+  const [period, setPeriod] = useState<string>("day");
 
   switch (selection) {
     case "Calendario":
@@ -19,10 +27,13 @@ const PageSelector = (props: { user: boolean; selection: string }) => {
         <>
           <Container maxWidth={"lg"}>
             <Grid2 container spacing={1}>
-              <Grid2 xs={6}>
-                <FilterInput date={date} setDate={setDate} />
+              <Grid2 xs={4}>
+                <Stack spacing={1}>
+                  <DateFilter period={period} setPeriod={setPeriod} />
+                  <ViewCalendario date={date} setDate={setDate} />
+                </Stack>
               </Grid2>
-              <Grid2 xs={6}>
+              <Grid2 xs={8}>
                 <Stack spacing={1}>
                   <EventList date={date} />
                 </Stack>

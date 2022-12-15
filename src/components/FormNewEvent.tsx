@@ -1,7 +1,5 @@
 import {
-  Autocomplete,
   Button,
-  Chip,
   Dialog,
   DialogActions,
   DialogContent,
@@ -9,22 +7,47 @@ import {
   Divider,
   Stack,
   TextField,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { it } from "date-fns/locale";
 import { MuiChipsInput } from "mui-chips-input";
+import { MuiFileInput } from "mui-file-input";
 import React, { useState } from "react";
+import InputLocation from "./InputLocation";
 
 const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
   const { createEvent, setCreateEvent } = props;
 
   const today = new Date();
 
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleClose = () => {
+    setTitle("");
+    setDateStart(new Date(""));
+    setDateFinish(new Date(""));
+    setTags([]);
+    setDescription("");
+    setFile(null);
+
+    setCreateEvent(false);
+  };
+
+  //Form data
   const [title, setTitle] = useState<string>("");
   const [dateStart, setDateStart] = useState<Date>(new Date(""));
   const [dateFinish, setDateFinish] = useState<Date>(new Date(""));
   const [tags, setTags] = useState<string[]>([]);
+  const [description, setDescription] = useState<string>("");
+  const [file, setFile] = React.useState(null);
+
+  const handleChange = (newFile: any) => {
+    setFile(newFile);
+  };
 
   function handleSelecetedTags(tags: string[]) {
     console.log(tags);
@@ -38,7 +61,7 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
           fullWidth={true}
           open={createEvent}
           onClose={() => {}}
-          //fullScreen={fullScreen}
+          fullScreen={fullScreen}
           aria-labelledby="dialog-title"
           scroll={"paper"}
         >
@@ -95,22 +118,21 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
                   );
                 }}
               />
+              <TextField
+                variant={"outlined"}
+                label={"Descrizione"}
+                placeholder={"Aggiungi una descrizione"}
+                multiline
+                value={description}
+                onChange={(event) => setDescription(String(event.target.value))}
+              />
+              <InputLocation />
+              <MuiFileInput value={file} onChange={handleChange} />
             </Stack>
           </DialogContent>
           <DialogActions>
-            <Button
-              onClick={() => {
-                setCreateEvent(false);
-              }}
-            >
-              Annulla
-            </Button>
-            <Button
-              variant={"contained"}
-              onClick={() => {
-                setCreateEvent(false);
-              }}
-            >
+            <Button onClick={handleClose}>Annulla</Button>
+            <Button variant={"contained"} onClick={handleClose}>
               Crea
             </Button>
           </DialogActions>

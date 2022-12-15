@@ -16,13 +16,10 @@ import {
   InputAdornment,
   Stack,
   TextField,
-  Typography,
   useMediaQuery,
   useTheme,
-  withStyles,
 } from "@mui/material/";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import { borderRadius } from "@mui/system";
 import React, { useState } from "react";
 import formatDate from "../functions/dateParser/formatDate";
 import formatTime from "../functions/dateParser/formatTime";
