@@ -7,6 +7,7 @@ import {
   Divider,
   Stack,
   TextField,
+  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
@@ -16,6 +17,7 @@ import { it } from "date-fns/locale";
 import { MuiChipsInput } from "mui-chips-input";
 import { MuiFileInput } from "mui-file-input";
 import React, { useState } from "react";
+import checkFileType from "../functions/fileParser/checkFileType";
 import InputLocation from "./InputLocation";
 
 const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
@@ -43,10 +45,23 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
   const [dateFinish, setDateFinish] = useState<Date>(new Date(""));
   const [tags, setTags] = useState<string[]>([]);
   const [description, setDescription] = useState<string>("");
-  const [file, setFile] = React.useState(null);
+  const [file, setFile] = React.useState<File | null>(null);
 
-  const handleChange = (newFile: any) => {
-    setFile(newFile);
+  const handleFileChange = (newFile: File | null) => {
+    if (newFile !== null) {
+      //File size debug
+      //console.log(newFile.size);
+
+      if (newFile.size <= 4000000) {
+        if (checkFileType(newFile)) {
+          setFile(newFile);
+        } else {
+          alert("File is not an Image");
+        }
+      } else {
+        alert("File size > 4MB \n Scegliere un file < 4MB");
+      }
+    }
   };
 
   function handleSelecetedTags(tags: string[]) {
@@ -127,7 +142,12 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
                 onChange={(event) => setDescription(String(event.target.value))}
               />
               <InputLocation />
-              <MuiFileInput value={file} onChange={handleChange} />
+              <MuiFileInput
+                //label={"Immagine"}
+                placeholder={"Inserisci un'immagine <4MB .jpeg/.jpg/.png"}
+                value={file}
+                onChange={handleFileChange}
+              />
             </Stack>
           </DialogContent>
           <DialogActions>
