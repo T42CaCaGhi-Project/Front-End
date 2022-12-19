@@ -5,6 +5,7 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
+  Input,
   Stack,
   TextField,
   Typography,
@@ -15,7 +16,6 @@ import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { it } from "date-fns/locale";
 import { MuiChipsInput } from "mui-chips-input";
-import { MuiFileInput } from "mui-file-input";
 import React, { useState } from "react";
 import checkFileType from "../functions/fileParser/checkFileType";
 import InputLocation from "./InputLocation";
@@ -35,6 +35,7 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
     setTags([]);
     setDescription("");
     setFile(null);
+    setPosition([0,0]);
 
     setCreateEvent(false);
   };
@@ -46,12 +47,17 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
   const [tags, setTags] = useState<string[]>([]);
   const [description, setDescription] = useState<string>("");
   const [file, setFile] = React.useState<File | null>(null);
+  const [position, setPosition] = useState<number[]>([0,0]);
 
-  const handleFileChange = (newFile: File | null) => {
+  const handleFileChange = (filePath: string) => {
+    //File size debug
+    //console.log(newFile.size);
+
+    console.log(filePath);
+
+    const newFile = require(filePath);
+
     if (newFile !== null) {
-      //File size debug
-      //console.log(newFile.size);
-
       if (newFile.size <= 4000000) {
         if (checkFileType(newFile)) {
           setFile(newFile);
@@ -63,10 +69,6 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
       }
     }
   };
-
-  function handleSelecetedTags(tags: string[]) {
-    console.log(tags);
-  }
 
   if (createEvent) {
     return (
@@ -85,6 +87,7 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
             <Divider />
             <Stack marginY={2} spacing={2}>
               <TextField
+                required
                 variant={"outlined"}
                 label={"Nome Evento"}
                 type={"text"}
@@ -93,7 +96,7 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
               />
               <LocalizationProvider locale={it} dateAdapter={AdapterDateFns}>
                 <DateTimePicker
-                  renderInput={(props) => <TextField {...props} />}
+                  renderInput={(props) => <TextField required {...props} />}
                   label={"Data Inizio"}
                   value={dateStart}
                   onChange={(data) => {
@@ -106,7 +109,7 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
               </LocalizationProvider>
               <LocalizationProvider locale={it} dateAdapter={AdapterDateFns}>
                 <DateTimePicker
-                  renderInput={(props) => <TextField {...props} />}
+                  renderInput={(props) => <TextField required {...props} />}
                   label={"Data Fine"}
                   value={dateFinish}
                   onChange={(data) => {
@@ -118,10 +121,11 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
                 />
               </LocalizationProvider>
               <MuiChipsInput
-                label="Tags"
+                required
+                label={"Tags"}
                 fullWidth
                 value={tags}
-                onChange={(item) => setTags(item)}
+                onChange={(items) => setTags(Array.from(new Set(items)))}
                 placeholder={"Aggiungi Tag"}
                 renderChip={(Component, props) => {
                   return (
@@ -134,6 +138,7 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
                 }}
               />
               <TextField
+                required
                 variant={"outlined"}
                 label={"Descrizione"}
                 placeholder={"Aggiungi una descrizione"}
@@ -141,12 +146,15 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
                 value={description}
                 onChange={(event) => setDescription(String(event.target.value))}
               />
-              <InputLocation />
-              <MuiFileInput
+              <InputLocation marker={position} setMarkerPos={setPosition} />
+              <TextField
+                required
+                variant={"outlined"}
                 //label={"Immagine"}
-                placeholder={"Inserisci un'immagine <4MB .jpeg/.jpg/.png"}
+                type={"file"}
+                inputProps={{ accept: "image/png, image/jpeg, image/jpg" }}
                 value={file}
-                onChange={handleFileChange}
+                onChange={(event) => console.log(event.target.value)}
               />
             </Stack>
           </DialogContent>
