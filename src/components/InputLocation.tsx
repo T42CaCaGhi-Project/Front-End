@@ -1,7 +1,8 @@
 import { Icon, LatLngExpression } from "leaflet";
-import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import React, { useRef, useState } from "react";
 import { MapContainer, Marker, TileLayer, useMapEvent } from "react-leaflet";
+import { Location } from "../types/Events";
+import PrintMarker from "./PrintMarker";
 
 const SetViewOnClick = (props: { animateRef: any; setMarkerPos: any }) => {
   const { animateRef, setMarkerPos } = props;
@@ -10,14 +11,23 @@ const SetViewOnClick = (props: { animateRef: any; setMarkerPos: any }) => {
     map.setView(e.latlng, map.getZoom(), {
       animate: animateRef.current || false,
     });
-    setMarkerPos([e.latlng.lat, e.latlng.lng]);
+    console.log(e);
+    const marker = {
+      name: "",
+      city: "",
+      street: "",
+      lat: String(e.latlng.lat),
+      lon: String(e.latlng.lng),
+    } as Location;
+
+    setMarkerPos(marker);
   });
 
   return null;
 };
 
 const InputLocation = (props: {
-  marker: number[];
+  marker: Location | null;
   setMarkerPos: any;
   scale: number;
 }) => {
@@ -42,17 +52,7 @@ const InputLocation = (props: {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker
-        position={marker as LatLngExpression}
-        icon={
-          new Icon({
-            iconUrl: markerIconPng,
-            iconSize: [12.5 * scale, 20.5 * scale],
-            iconAnchor: [6 * scale, 20.5 * scale],
-          })
-        }
-        key={1}
-      ></Marker>
+      <PrintMarker marker={marker} scale={scale} />
       <SetViewOnClick animateRef={useRef(true)} setMarkerPos={setMarkerPos} />
     </MapContainer>
   );

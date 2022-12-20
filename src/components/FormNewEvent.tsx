@@ -17,7 +17,9 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { it } from "date-fns/locale";
 import { MuiChipsInput } from "mui-chips-input";
 import React, { useState } from "react";
+import composeInputForm from "../functions/compose/composeInputForm";
 import checkFileType from "../functions/fileParser/checkFileType";
+import { Location } from "../types/Events";
 import InputLocation from "./InputLocation";
 
 const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
@@ -35,9 +37,31 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
     setTags([]);
     setDescription("");
     setFile(null);
-    setPosition([0,0]);
+    setPosition(null);
 
     setCreateEvent(false);
+  };
+  const handleCreation = () => {
+    if (file === null) {
+      alert("File is null");
+    }
+    if (position === null) {
+      alert("Position is null");
+    }
+
+    if (file !== null && position !== null) {
+      /*composeInputForm(
+        title,
+        dateStart,
+        dateFinish,
+        tags,
+        description,
+        file,
+        position
+      );*/
+    }
+
+    handleClose;
   };
 
   //Form data
@@ -47,7 +71,7 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
   const [tags, setTags] = useState<string[]>([]);
   const [description, setDescription] = useState<string>("");
   const [file, setFile] = React.useState<File | null>(null);
-  const [position, setPosition] = useState<number[]>([0,0]);
+  const [position, setPosition] = useState<Location | null>(null);
 
   const handleFileChange = (filePath: string) => {
     //File size debug
@@ -160,7 +184,7 @@ const FormNewEvent = (props: { createEvent: boolean; setCreateEvent: any }) => {
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Annulla</Button>
-            <Button variant={"contained"} onClick={handleClose}>
+            <Button variant={"contained"} onClick={handleCreation}>
               Crea
             </Button>
           </DialogActions>
