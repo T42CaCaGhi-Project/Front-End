@@ -1,14 +1,15 @@
 import { Add as AddIcon } from "@mui/icons-material";
 import { Fab } from "@mui/material";
 import React, { useState } from "react";
+import { User } from "../types/Users";
 import FormNewEvent from "./FormNewEvent";
 
-const NewEvent = (props: { user: boolean }) => {
+const NewEvent = (props: { user: User | null }) => {
   const { user } = props;
 
   const [createEvent, setCreateEvent] = useState<boolean>(false);
 
-  if (user) {
+  if (user?.isOrg || user?.isAdm) {
     return (
       <>
         <FormNewEvent

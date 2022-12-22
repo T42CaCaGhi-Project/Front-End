@@ -1,6 +1,7 @@
 import {
   ChevronLeft as ChevronLeftIcon,
   Event as EventIcon,
+  LockOutlined as LockOutlinedIcon,
   Menu as MenuIcon,
   Place as PlaceIcon,
 } from "@mui/icons-material";
@@ -22,6 +23,7 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled, useTheme } from "@mui/material/styles";
 import * as React from "react";
 import { useState } from "react";
+import { User } from "../types/Users";
 import Copyright from "./Copyright";
 import PageSelector from "./PageSelector";
 
@@ -80,7 +82,8 @@ const App = () => {
   const [selection, setSelection] = useState<string>("Calendario");
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
-  const [user, setUser] = useState<boolean>(true);
+  const [user, setUser] = useState<User | null>(null);
+  const [token, setToken] = useState<string>("");
 
   const theme = useTheme();
 
@@ -158,11 +161,30 @@ const App = () => {
               />
             </ListItemButton>
           </ListItem>
+          <ListItem key={"Login"} disablePadding>
+            <ListItemButton onClick={() => setSelection("Login")}>
+              <ListItemIcon>
+                <LockOutlinedIcon sx={{ color: "black" }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={"Login"}
+                sx={{
+                  fontWeight: "600",
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
         </List>
       </Drawer>
       <Main open={openMenu} sx={{ paddingBottom: 0 }}>
         <DrawerHeader />
-        <PageSelector user={user} selection={selection} />
+        <PageSelector
+          user={user}
+          setUser={setUser}
+          setToken={setToken}
+          selection={selection}
+          setSelection={setSelection}
+        />
         <Copyright />
       </Main>
     </Box>

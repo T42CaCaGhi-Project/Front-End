@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useSWR from "swr";
-import fetcher from "../functions/fetcher";
 import { Event, Events } from "../types/Events";
 import EventItem from "./EventItem";
 
