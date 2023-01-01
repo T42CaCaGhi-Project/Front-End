@@ -8,6 +8,7 @@ import {
   FormControlLabel,
   Grid,
   Link,
+  Paper,
   TextField,
   Typography,
   useTheme,
@@ -66,10 +67,11 @@ const Login = (props: { setUser: any; setToken: any; setSelection: any }) => {
     );
   } else {
     return (
-      <Container component="main" maxWidth="xs">
-        <Box
+      <Container component="main" maxWidth="md">
+        <Paper
           sx={{
             marginTop: 8,
+            padding: 10,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -132,7 +134,7 @@ const Login = (props: { setUser: any; setToken: any; setSelection: any }) => {
               </Grid>
             </Grid>
           </Box>
-        </Box>
+        </Paper>
       </Container>
     );
   }

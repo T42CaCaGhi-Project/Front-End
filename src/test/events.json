@@ -29,157 +29,42 @@
                 "name": "Domo",
                 "city": "Trento",
                 "street": "Piazza Adamo d'Arogno",
-                "lat": "46.0697166",
-                "lon": "11.1512141"
+                "lat": "46.0667166",
+                "lon": "11.1221141"
             },
             "dateStart": "2022-10-20T21:00:00",
             "dateFinish": "2022-10-20T23:00:00",
-            "title": "Beviamoci su 2",
+            "title": "Mercolegin",
             "tags": [
                 "birra",
-                "pergine",
-                "ciao",
-                "test",
-                "test",
-                "test",
-                "test",
-                "test",
-                "test",
-                "test",
-                "test",
-                "test",
-                "test",
-                "test"
+                "gin",
+                "trento"
             ],
             "image": "image1.jpg",
-            "description": "Si beve asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
-            "nParticipants": 5
+            "description": "Mercolegin",
+            "nParticipants": 150
         },
         {
             "id": 3,
             "idOwner": 15,
             "location": {
-                "name": "Domo",
-                "city": "Trento",
-                "street": "Piazza Adamo d'Arogno",
-                "lat": "46.3667166",
-                "lon": "11.1223454"
+                "name": "Parco Giarete",
+                "city": "Pergine Valsugana",
+                "street": "Via dei Prati",
+                "lat": "46.06428",
+                "lon": "11.23559"
             },
             "dateStart": "2022-10-20T21:00:00",
             "dateFinish": "2022-10-20T23:00:00",
-            "title": "Beviamoci su 2",
+            "title": "Festa",
             "tags": [
                 "birra",
-                "pergine"
+                "pergine",
+                "musica"
             ],
             "image": "image1.jpg",
-            "description": "Si beve",
-            "nParticipants": 5
-        },
-        {
-            "id": 4,
-            "idOwner": 15,
-            "location": {
-                "name": "Domo",
-                "city": "Trento",
-                "street": "Piazza Adamo d'Arogno",
-                "lat": "46.0667166",
-                "lon": "11.1221141"
-            },
-            "dateStart": "2022-10-20T21:00:00",
-            "dateFinish": "2022-10-20T23:00:00",
-            "title": "Beviamoci su 2",
-            "tags": [
-                "birra",
-                "pergine"
-            ],
-            "image": "image1.jpg",
-            "description": "Si beve",
-            "nParticipants": 5
-        },
-        {
-            "id": 5,
-            "idOwner": 15,
-            "location": {
-                "name": "Domo",
-                "city": "Trento",
-                "street": "Piazza Adamo d'Arogno",
-                "lat": "46.0667166",
-                "lon": "11.1221141"
-            },
-            "dateStart": "2022-10-20T21:00:00",
-            "dateFinish": "2022-10-20T23:00:00",
-            "title": "Beviamoci su 2",
-            "tags": [
-                "birra",
-                "pergine"
-            ],
-            "image": "image1.jpg",
-            "description": "Si beve",
-            "nParticipants": 5
-        },
-        {
-            "id": 6,
-            "idOwner": 15,
-            "location": {
-                "name": "Domo",
-                "city": "Trento",
-                "street": "Piazza Adamo d'Arogno",
-                "lat": "46.0667166",
-                "lon": "11.1221141"
-            },
-            "dateStart": "2022-10-20T21:00:00",
-            "dateFinish": "2022-10-20T23:00:00",
-            "title": "Beviamoci su 2",
-            "tags": [
-                "birra",
-                "pergine"
-            ],
-            "image": "image1.jpg",
-            "description": "Si beve",
-            "nParticipants": 5
-        },
-        {
-            "id": 7,
-            "idOwner": 15,
-            "location": {
-                "name": "Domo",
-                "city": "Trento",
-                "street": "Piazza Adamo d'Arogno",
-                "lat": "46.0667166",
-                "lon": "11.1221141"
-            },
-            "dateStart": "2022-10-20T21:00:00",
-            "dateFinish": "2022-10-20T23:00:00",
-            "title": "Beviamoci su 2",
-            "tags": [
-                "birra",
-                "pergine"
-            ],
-            "image": "image1.jpg",
-            "description": "Si beve",
-            "nParticipants": 5
-        },
-        {
-            "id": 8,
-            "idOwner": 15,
-            "location": {
-                "name": "Domo",
-                "city": "Trento",
-                "street": "Piazza Adamo d'Arogno",
-                "lat": "46.0667166",
-                "lon": "11.1221141"
-            },
-            "dateStart": "2022-10-20T21:00:00",
-            "dateFinish": "2022-10-20T23:00:00",
-            "title": "Beviamoci su 2",
-            "tags": [
-                "birra",
-                "pergine"
-            ],
-            "image": "image1.jpg",
-            "description": "Si beve",
-            "nParticipants": 5
+            "description": "Discoteca",
+            "nParticipants": 221
         }
     ]
 }

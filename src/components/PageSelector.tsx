@@ -14,7 +14,7 @@ const PageSelector = (props: {
   setUser: any;
   setToken: any;
   selection: string;
-  setSelection:any
+  setSelection: any;
 }) => {
   const { user, setUser, setToken, selection, setSelection } = props;
 
@@ -58,7 +58,11 @@ const PageSelector = (props: {
     case "Login":
       return (
         <>
-          <Login setUser={setUser} setToken={setToken} setSelection={setSelection}/>
+          <Login
+            setUser={setUser}
+            setToken={setToken}
+            setSelection={setSelection}
+          />
         </>
       );
     default:

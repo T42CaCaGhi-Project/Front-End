@@ -58,10 +58,13 @@ const createMarker = (event: Event) => {
 const MapList = (props: any) => {
   const date = Date();
 
-  const { data, error } = useSWR<ResponseEvents, Error>(
-    "http://localhost:3300/api/event/all",
-    fetcherEventAll
-  );
+  // const { data, error } = useSWR<ResponseEvents, Error>(
+  //   "http://localhost:3300/api/event/all",
+  //   fetcherEventAll
+  // );
+
+  const data = { status: "success", data: require("../test/events.json") as Events };
+  const error = false;
 
   const posTrento = [46.066667, 11.116667] as LatLngExpression;
 

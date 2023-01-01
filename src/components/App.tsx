@@ -82,7 +82,12 @@ const App = () => {
   const [selection, setSelection] = useState<string>("Calendario");
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>({
+    email: "admin@admin.admin",
+    password: "asdasd",
+    isAdm: true,
+    isOrg: true,
+  } as User);
   const [token, setToken] = useState<string>("");
 
   const theme = useTheme();
