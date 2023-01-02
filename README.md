@@ -7,6 +7,6 @@ Repository contenente la parte di front-end del progetto
 ```npm i```
 ```npm run start```
 
-## Link
+# Link
 
 [Front-end](https://T42CaCaGhi-Project.github.io/Front-End)
